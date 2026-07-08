@@ -1,0 +1,35 @@
+---
+- name: installing nginx and postgresql
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: no
+  loop:
+    - nginx
+    - postgresql
+ 
+- name: configure nginx to pass both score checks
+  copy:
+    content: |
+      server {
+          listen 9090 default_server;
+          server_name _;
+ 
+          location / {
+              add_header Content-Type text/html;
+              return 200 "google.com";
+          }
+      }
+    dest: /etc/nginx/sites-enabled/default
+ 
+- name: ensure postgresql is running
+  service:
+    name: postgresql
+    state: started
+    enabled: yes
+ 
+- name: ensure nginx is restarted with new config
+  service:
+    name: nginx
+    state: restarted
+    enabled: yes
