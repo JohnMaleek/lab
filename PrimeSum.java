@@ -2,25 +2,19 @@ package javaApp;
 
 public class PrimeSum {
 
-    public static void main(String[] args) {
-        int maxNum = 0;
-        
-        if (args.length > 0) {
-            maxNum = Integer.parseInt(args[0]);
+    // Method expected by PrimeSumTest.java
+    public static int primesum(int maxNum) {
+        if (maxNum <= 0) {
+            return 0;
         }
 
         int sum = 0;
-
-        if (maxNum > 0) {
-            for (int i = 2; i <= maxNum; i++) {
-                if (isPrime(i)) {
-                    sum += i;
-                }
+        for (int i = 2; i <= maxNum; i++) {
+            if (isPrime(i)) {
+                sum += i;
             }
         }
-
-        // Print the sum (or 0 if maxNum <= 0)
-        System.out.println(sum);
+        return sum;
     }
 
     // Helper method to check if a number is prime
@@ -34,5 +28,12 @@ public class PrimeSum {
             }
         }
         return true;
+    }
+
+    public static void main(String[] args) {
+        if (args.length > 0) {
+            int maxNum = Integer.parseInt(args[0]);
+            System.out.println(primesum(maxNum));
+        }
     }
 }
