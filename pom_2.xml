@@ -8,7 +8,7 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <dependencies>
-        <!-- JUnit dependency for test reports -->
+        <!-- JUnit 4 Dependency for test reports -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -51,6 +51,7 @@
                 </executions>
                 <configuration>
                     <mainClass>javaApp.PrimeSum</mainClass>
+                    <commandlineArgs>10</commandlineArgs>
                 </configuration>
             </plugin>
         </plugins>
