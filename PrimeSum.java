@@ -2,7 +2,6 @@ package javaApp;
 
 public class PrimeSum {
 
-    // Method expected by PrimeSumTest.java
     public static int primesum(int maxNum) {
         if (maxNum <= 0) {
             return 0;
@@ -17,7 +16,6 @@ public class PrimeSum {
         return sum;
     }
 
-    // Helper method to check if a number is prime
     public static boolean isPrime(int n) {
         if (n <= 1) {
             return false;
@@ -31,9 +29,14 @@ public class PrimeSum {
     }
 
     public static void main(String[] args) {
-        if (args.length > 0) {
-            int maxNum = Integer.parseInt(args[0]);
-            System.out.println(primesum(maxNum));
+        int maxNum = 0;
+        if (args != null && args.length > 0) {
+            try {
+                maxNum = Integer.parseInt(args[0]);
+            } catch (NumberFormatException e) {
+                maxNum = 0;
+            }
         }
+        System.out.println(primesum(maxNum));
     }
 }
