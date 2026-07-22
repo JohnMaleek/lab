@@ -8,7 +8,7 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <dependencies>
-        <!-- JUnit 4 Dependency for test reports -->
+        <!-- junit dependency -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -19,7 +19,7 @@
 
     <build>
         <plugins>
-            <!-- Maven Compiler Plugin (Java 1.8 for platform compatibility) -->
+            <!-- maven-compiler-plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -30,14 +30,14 @@
                 </configuration>
             </plugin>
 
-            <!-- Maven Surefire Plugin to generate JUnit test reports -->
+            <!-- maven-surefire-plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0</version>
             </plugin>
 
-            <!-- Exec Maven Plugin -->
+            <!-- exec-maven-plugin -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
@@ -51,7 +51,7 @@
                 </executions>
                 <configuration>
                     <mainClass>javaApp.PrimeSum</mainClass>
-                    <commandlineArgs>10</commandlineArgs>
+                    <commandlineArgs>20</commandlineArgs>
                 </configuration>
             </plugin>
         </plugins>
